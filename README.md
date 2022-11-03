@@ -145,7 +145,6 @@ before a phase 1 rule, then the phase 1 rule is executed first.
 * CRS rule 949111: blocking early
 * plugins *-after.conf
 
-
 Please note that plugin rules in the *-before.conf file will
 run before the formal initialization of CRS in the 901 rules
 file. If you do anomaly scoring in phase 1 before the
