@@ -1,14 +1,14 @@
-# OWASP ModSecurity Core Rule Set - Dummy Plugin
+# OWASP ModSecurity Core Rule Set - Template Plugin
 
 The OWASP Core Rule Set (CRS) comes with a plugin structure that allows
 to add official and third-party plugins to work with the existing
 baseline CRS installation.
 
-This repository contains a dummy-plugin that you can use as a base
+This repository contains a template-plugin that you can use as a base
 to start writing your own plugin. And it illustrates the idea behind
 the plugin mechanism.
 
-The dummy plugin in this repository is an offical CRS plugin.
+The template plugin in this repository is an offical CRS plugin.
 
 The CRS plugin documentation can be found on the [website](https://coreruleset.org/docs/configuring/plugins/).
 
@@ -38,23 +38,23 @@ that loads all the files which follow the filename pattern *-after.conf
 from the plugins folder.
 
 A plugin typically has the following files (explained with the
-example of this dummy-plugin):
+example of this template-plugin):
 
 ```
-plugins/dummy-config.conf
-plugins/dummy-before.conf
-plugins/dummy-after.conf
+plugins/template-config.conf
+plugins/template-before.conf
+plugins/template-after.conf
 ```
 
 All three files may contain CRS rules.
 
 CRS plugins are enabled by default. Yet they can be disabled by setting a
-variable. See below or in the dummy-plugin's config file for more information.
+variable. See below or in the template-plugin's config file for more information.
 
 ## What Rule IDs do the plugins have
 
 Each CRS plugin gets a range of 1,000 rule IDs, from 9,500,000 onwards.
-The dummy plugin runs from 9,500,000 to 9,500,999. There is a separate
+The template plugin runs from 9,500,000 to 9,500,999. There is a separate
 plugin rule ID registration repo where new plugins can be registered.
 
 https://github.com/coreruleset/plugin-registry
@@ -65,28 +65,28 @@ The rule range is meant to be used as follows:
 * 9,5XX,100 - 9,5XX,499 : Request Rules
 * 9,5XX,500 - 9,5XX,999 : Response Rules
 
-## How does this Dummy Plugin work?
+## How does this Template Plugin work?
 
-The Dummy Plugin has two active rules and three rules that are commented
+The Template Plugin has two active rules and three rules that are commented
 out:
 
-Rule 9500010 in dummy-config.conf checks for the existence of the
-TX variable `dummy-plugin_enabled`. If the variable is not set,
+Rule 9500010 in template-config.conf checks for the existence of the
+TX variable `template-plugin_enabled`. If the variable is not set,
 it is being created and set to 0.
 The rule is commented out. That means the plugin is enabled
 by default. Uncomment this rule to disable the plugin.
 This rule is mandatory for CRS plugins.
 
-Rule 9500020 in dummy-config.conf sets the TX variable `dummy-plugin_foobar`
+Rule 9500020 in template-config.conf sets the TX variable `template-plugin_foobar`
 to 1. It is commented out. Uncomment it to set the variable.
 
-Rule 9500100 in dummy-config.conf checks for the request parameter
-dummy-plugin-test-parameter. If is present and not empty, then
+Rule 9500100 in template-config.conf checks for the request parameter
+template-plugin-test-parameter. If is present and not empty, then
 a rule alert is triggered and the anomaly score is raised with
 a severity CRITICAL score.
 
-Rule 9500099 in dummy-before.conf checks for the 
-TX variable `dummy-plugin_enabled`. If the variable is existing and it is
+Rule 9500099 in template-before.conf checks for the 
+TX variable `template-plugin_enabled`. If the variable is existing and it is
 set to 0, then the subsequent rules of the plugin are removed for the
 current transaction. This effectively disables the plugin for the
 current transaction.
@@ -94,22 +94,22 @@ This rule is mandatory for CRS plugins. When writing your own plugins,
 it is important to make sure the control statement in this rule removes
 the right rule range.
 
-Rule 9500100 in dummy-before.conf checks for the existence of the
-request parameter `dummy-plugin-test-parameter`. If the parameter exists
+Rule 9500100 in template-before.conf checks for the existence of the
+request parameter `template-plugin-test-parameter`. If the parameter exists
 and is non-empty, a critical alert is thrown.
 
-Rule 9500500 in dummy-after.conf looks in the response body for a 
+Rule 9500500 in template-after.conf looks in the response body for a 
 supposed token (that is probably not existing there).
 This rule is commented out and serves as an example for a response rule.
 
-## How to adopt the Dummy Plugin to your needs?
+## How to adopt the Template Plugin to your needs?
 
-Feel free to take this dummy plugin and adopt it to your needs.
+Feel free to take this template plugin and adopt it to your needs.
 
 The following steps are necessary to create a new plugin that
 follows the established standard for CRS plugins:
 
-* Pick a plugin name. Example: dummy-plugin.
+* Pick a plugin name. Example: template-plugin.
 * Go to https://github.com/coreruleset/plugin-registry and look for an empty rule range.
 * Rename the plugins files to the plugin-name you picked above.
 * Write your rules.
@@ -209,7 +209,7 @@ phase 2 rules.
   are all running in phase 1.
 
 
-## How to contribute the Dummy Plugin to CRS?
+## How to contribute the Template Plugin to CRS?
 
 Plugins can be inofficial 3rd party plugins. Or they can be official CRS plugins
 in our github repository.
