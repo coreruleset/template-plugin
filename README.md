@@ -15,7 +15,7 @@ The CRS plugin documentation can be found on the [website](https://coreruleset.o
 ## How do CRS plugins work?
 
 Plugins are rules like ordinary rules and they integrate with an existing
-CRS installation. Starting with CRS 3.4, there are four rules includes,
+CRS installation. Starting with CRS 4.0, there are four rules includes,
 three of which are meant for plugins:
 
 ```
