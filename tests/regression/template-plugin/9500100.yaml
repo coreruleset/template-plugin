@@ -6,7 +6,7 @@ meta:
   name: 9500100.yaml
 tests:
   - test_title: 9500100-1
-    desc: Check if you plugin works
+    desc: Check if you plugin works. Normally plugins are targeted at exclusion rules, but this might not be the case.
     stages:
       - stage:
           input:
