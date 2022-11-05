@@ -21,4 +21,4 @@ tests:
             data: |
               text
           output:
-            no_log_contains: id "ABC"
+            no_log_contains: id "ABCD"
