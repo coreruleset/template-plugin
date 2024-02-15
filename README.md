@@ -2,7 +2,7 @@
 
 ![Integration tests](https://github.com/coreruleset/template-plugin/actions/workflows/integration.yml/badge.svg)
 
-The OWASP Core Rule Set (CRS) comes with a plugin structure that allows
+The OWASP CRS comes with a plugin structure that allows
 to add official and third-party plugins to work with the existing
 baseline CRS installation.
 
