@@ -23,20 +23,21 @@ three of which are meant for plugins:
 ```
 Include crs/crs-setup.conf
 
-Include modsecurity.d/owasp-modsecurity-crs/plugins/*-config.conf
-Include modsecurity.d/owasp-modsecurity-crs/plugins/*-before.conf
+Include crs/plugins/*-config.conf
+Include crs/plugins/*-before.conf
 
-Include modsecurity.d/owasp-modsecurity-crs/rules/*.conf
+Include crs/rules/*.conf
 
-Include modsecurity.d/owasp-modsecurity-crs/plugins/*-after.conf
+Include crs/plugins/*-after.conf
 ```
 
-The plugin-Folder in the standard CRS distribution is empty. Yet you can
+The plugin-folder in the standard CRS distribution is empty outside of three empty
+placeholder files. Yet you can
 copy your plugin files into that folder. Files with a filename of
-the pattern *-before.conf are loaded before all CRS files are being
+the pattern `*-before.conf` are loaded before all CRS files are being
 loaded in the first include line above. Then all the normal CRS
 rules are loaded and then finally there is the third Include statement
-that loads all the files which follow the filename pattern *-after.conf
+that loads all the files which follow the filename pattern `*-after.conf`
 from the plugins folder.
 
 A plugin typically has the following files (explained with the
