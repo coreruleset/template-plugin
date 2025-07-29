@@ -2,8 +2,7 @@
 meta:
   author: "Felipe Zipitria"
   description: "Template Plugin"
-  enabled: true
-  name: 9500100.yaml
+rule_id: 9500100
 tests:
   - test_id: 1
     desc: Check if you plugin works. Normally plugins are targeted at exclusion rules, but this might not be the case.
