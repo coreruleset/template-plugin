@@ -20,4 +20,4 @@ tests:
             text
         output:
           log:
-            no_expect_ids: [ABC]
+            no_expect_ids: [123456]
