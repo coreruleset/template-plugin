@@ -3,15 +3,6 @@ name: Plugin lint
 
 permissions:
   contents: read      # restrict repo access
-  actions: none       # no workflow modification
-  checks: none
-  deployments: none
-  issues: none
-  packages: none
-  pull-requests: none
-  repository-projects: none
-  security-events: none
-  statuses: none
 
 jobs:
   plugin-lint:
