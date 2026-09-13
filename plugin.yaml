@@ -32,6 +32,10 @@ rule_id_range:
 
 compatibility:
   crs_version: ">=4.0.0"
+  # engines is spelled out here, even though the template supports all three,
+  # to showcase the field for authors copying this file. A real plugin that
+  # truly supports every engine should omit `engines` instead: per
+  # docs/plugin-descriptor-schema.md, an omitted field already means "all".
   engines:
     - "modsecurity2"
     - "modsecurity3"
